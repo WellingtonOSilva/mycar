@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>Nova corrida</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/materialize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="../dashboard" class="brand-logo"><i class="large material-icons right">directions_car</i> </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="../motorista">Motoristas</a></li>
+            <li><a href="../passageiro">Passageiros</a></li>
+            <li><a href="../corrida">Corridas</a></li>
+            <li><a href="../configuracao">Configuração</a></li>
+        </ul>
+    </div>
+</nav>
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="../motorista">Motoristas</a></li>
+    <li><a href="../passageiro">Passageiros</a></li>
+    <li><a href="../corrida">Corridas</a></li>
+    <li><a href="../configuracao">Configuração</a></li>
+</ul>
+<div class="container">
+    <h3>Nova corrida</h3>
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <i class="material-icons prefix">directions_car</i>
+            <input type="text" id="driver">
+            <label for="driver">Motorista</label>
+        </div>
+        <div class="input-field col s12 m6">
+            <i class="material-icons prefix">people</i>
+            <input type="text" id="passenger">
+            <label for="passenger">Passageiros</label>
+        </div>
+        <div class="input-field col s6 m4">
+            <i class="material-icons prefix">my_location</i>
+            <input id="from" type="text" class="validate">
+            <label for="from">Partida:</label>
+        </div>
+        <div class="input-field col s6 m4">
+            <i class="material-icons prefix">place</i>
+            <input id="to" type="text" class="validate">
+            <label for="to">Destino:</label>
+        </div>
+        <div class="input-field col s6 m4">
+            <i class="material-icons prefix">credit_card</i>
+            <select id="payment">
+                <option value="" disabled selected>Escolha uma opção</option>
+
+            </select>
+            <label for="payment">Pagamento:</label>
+        </div>
+        <div class="input-field col s6 m12">
+            <i class="material-icons prefix">attach_money</i>
+            <input id="price" type="text" class="validate">
+            <label for="price">Valor:</label>
+        </div>
+        </div>
+        <div class="right-align">
+            <a class="waves-effect waves-light btn" onclick="newRace()">Criar</a>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bin/materialize.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/jquery.mask.min.js"></script>
+<script src="corrida.js"></script>
+<script>
+
+    session();
+
+    $('#price').mask('000000000.00', {reverse: true});
+
+    $('#driver').autocomplete({
+        data: autoCompleteDriver(),
+        onAutocomplete: function (data) {
+            var a = data;
+            var b = a.split(' -', -1);
+            $('#driver').attr('value', b[0]);
+
+        }
+    });
+    $('#passenger').autocomplete({
+        data: autoCompletePassenger(),
+        onAutocomplete: function (data) {
+            var a = data;
+            var b = a.split(' -', -1);
+            $('#passenger').attr('value', b[0]);
+
+        }
+    });
+
+    getPayment();
+</script>
+</body>
+</html>

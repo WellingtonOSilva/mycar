@@ -1,0 +1,18 @@
+.checkbox-field {
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.buttons {
+    padding: 0.75rem;
+}
+
+.brand-logo {
+    margin-left: 3%;
+}
+

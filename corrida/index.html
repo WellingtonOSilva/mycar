@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Corridas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/materialize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"> -->
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="../dashboard" class="brand-logo"><i class="large material-icons right">directions_car</i> </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="../motorista">Motoristas</a></li>
+            <li><a href="../passageiro">Passageiros</a></li>
+            <li><a href="../corrida">Corridas</a></li>
+            <li><a href="../configuracao">Configuração</a></li>
+        </ul>
+    </div>
+</nav>
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="../motorista">Motoristas</a></li>
+    <li><a href="../passageiro">Passageiros</a></li>
+    <li><a href="../corrida">Corridas</a></li>
+    <li><a href="../configuracao">Configuração</a></li>
+</ul>
+<div class="container">
+    <h3>Corridas  <a href="../corrida/nova" class="waves-effect waves-light btn right">Novo</a></h3>
+    <table id="tblRaces" class="mdl-data-table">
+        <thead>
+        <tr>
+            <th>Motorista</th>
+            <th>Passageiro</th>
+            <th>Partida</th>
+            <th>Destino</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+</div>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bin/materialize.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/jquery.datatable.js"></script>
+<script src="../js/datatableMaterial.js"></script>
+<script src="corrida.js"></script>
+<script>
+    $(document).ready(function(){
+        session();
+        tblRaces();
+    });
+</script>
+</body>
+</html>

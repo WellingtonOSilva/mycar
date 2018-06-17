@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>Novo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/materialize.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="../dashboard" class="brand-logo"><i class="large material-icons right">directions_car</i> </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="../motorista">Motoristas</a></li>
+                    <li><a href="../passageiro">Passageiros</a></li>
+                    <li><a href="../corrida">Corridas</a></li>
+                    <li><a href="../configuracao">Configuração</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="../motorista">Motoristas</a></li>
+            <li><a href="../passageiro">Passageiros</a></li>
+            <li><a href="../corrida">Corridas</a></li>
+            <li><a href="../configuracao">Configuração</a></li>
+        </ul>
+        <div class="container">
+            <h3>Novo motorista</h3>
+            <div class="row">
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="name" placeholder="" type="text" class="validate">
+                    <label for="name">Nome:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input id="cpf" placeholder="" type="tel" class="validate">
+                    <label for="cpf">CPF:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">calendar_today</i>
+                    <input type="text" placeholder="" id="birth"class="datepicker">
+                    <label for="birth">Data de nascimento</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">email</i>
+                    <input type="email" placeholder="" id="email" class="validate" data-error="Preencha o email corretamente">
+                    <label for="birth">Email:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">phone</i>
+                    <input type="text" placeholder="" id="phone">
+                    <label for="birth">Phone:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">wc</i>
+                    <select id="sex">
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                    <label>Sexo:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">check</i>
+                    <select id="status">
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="1">Ativo</option>
+                        <option value="0">Inativo</option>
+                    </select>
+                    <label>Status:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">location_city</i>
+                    <select id="car">
+                        <option value="" disabled selected>Escolha uma marca</option>
+                    </select>
+                    <label>Marca:</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">directions_car</i>
+                    <select id="carModel">
+                        <option value="" disabled selected>Escolha a marca</option>
+                    </select>
+                    <label>Modelo:</label>
+                </div>
+            </div>
+            <div class="right-align">
+                <a onclick="newDriver()" class="waves-effect waves-light btn">Criar</a>
+            </div>
+        </div>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/bin/materialize.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="motorista.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.datepicker').datepicker({format: "dd/mm/yyyy"});
+                $('#cpf').mask('000.000.000-00', {reverse: true});
+
+                getMarcas();
+                session();
+
+
+                $( "form" ).submit(function( event ) {
+                         newDriver();
+                         event.preventDefault();
+                     });
+
+
+                     $( "#car" ).change(function() {
+                         getCarros($(this).val());
+
+                     });
+
+
+            });
+        </script>
+    </body>
+</html>
